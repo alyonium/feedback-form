@@ -146,8 +146,8 @@ export default {
       'Водитель завышает стоимость проезда',
       'Нарушение графика движения по маршруту автобуса',
     ],
-    isLoading: false,
     isSuccessMessage: false,
+    isLoading: false,
   }),
   methods: {
     validate() {
