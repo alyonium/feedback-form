@@ -64,12 +64,14 @@
           sm="6"
           offset-sm="3"
           xs="12"
+          class="whiteSpacePre"
         >
           <v-text-field
+            @click="phoneClick"
             v-mask="'+7 ### ###-##-##'"
             v-model="phoneNumber"
             :rules="phoneRules"
-            label="Номер телефона для обратной связи"
+            label="+7 - - -  - - -  - -  - -"
             color="grey darken-4"
           ></v-text-field>
         </v-col>
@@ -150,6 +152,9 @@ export default {
     isLoading: false,
   }),
   methods: {
+    phoneClick() {
+      this.phoneNumber = '+7';
+    },
     validate() {
       if (this.$refs.form.validate()) {
         this.getAppealData();
@@ -177,7 +182,7 @@ export default {
 };
 </script>
 
-<style scoped lang="scss">
+<style lang="scss">
 $yellow: #fdce1c;
 
 #submit {
@@ -192,12 +197,16 @@ $yellow: #fdce1c;
   position: fixed;
   left: 0;
   top: 0;
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   background: rgba(0, 0, 0, 0.8);
   display: flex;
   align-items: center;
   justify-content: center;
   z-index: 100;
+}
+
+.whiteSpacePre label{
+  white-space: pre!important;
 }
 </style>
