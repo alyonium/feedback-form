@@ -68,10 +68,10 @@
         >
           <v-text-field
             @click="phoneClick"
-            v-mask="'+7 ### ###-##-##'"
+            v-mask="'+7 (###) ###-##-##'"
             v-model="phoneNumber"
             :rules="phoneRules"
-            label="+7 - - -  - - -  - -  - -"
+            label="+7 (- - -)  - - -  - -  - -"
             color="grey darken-4"
           ></v-text-field>
         </v-col>
@@ -130,7 +130,7 @@ export default {
       if (v.length === 0) {
         return true;
       }
-      return (/^((8|\+7)[ ])(\d{3}?)?[\d\- ]{10}$/.test(v)) || 'Введите корректный номер';
+      return (/^((\+7 ))(\(?\d{3}\)[- ]?)?[\d\- ]{10}$/.test(v)) || 'Введите корректный номер';
     }],
     category: null,
     items: [
@@ -153,7 +153,9 @@ export default {
   }),
   methods: {
     phoneClick() {
-      this.phoneNumber = '+7';
+      if (this.phoneNumber === '' || this.phoneNumber !== '+7 (') {
+        this.phoneNumber = '+7 (';
+      }
     },
     validate() {
       if (this.$refs.form.validate()) {
