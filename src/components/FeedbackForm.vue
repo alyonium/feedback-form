@@ -173,7 +173,7 @@ export default {
         geoLongitude: location?.coords?.longitude,
       };
       await axios
-        .post('https://feedback-form-back.herokuapp.com/feedback', appealData);
+        .post('http://176.119.157.60:3000/feedback', appealData);
       this.isLoading = false;
       this.isSuccessMessage = true;
     },
