@@ -173,7 +173,7 @@ export default {
         geoLongitude: location?.coords?.longitude,
       };
       await axios
-        .post('http://176.119.157.60:3000/feedback', appealData);
+        .post('https://mtdimo.ru/feedback', appealData);
       this.isLoading = false;
       this.isSuccessMessage = true;
     },
